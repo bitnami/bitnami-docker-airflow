@@ -9,9 +9,9 @@ EXEC=$(which $DAEMON)
 START_COMMAND="${EXEC} webserver | tee /opt/bitnami/airflow/logs/airflow-webserver.log"
 
 # Install custom python package if requirements.txt is present
-if [ -e "/requirements.txt" ]; then
+if [ -e "/bitnami/python/requirements.txt" ]; then
     source /opt/bitnami/airflow/venv/bin/activate
-    pip install -r /requirements.txt
+    pip install -r /bitnami/python/requirements.txt
     deactivate
 fi
 
